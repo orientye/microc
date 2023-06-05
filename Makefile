@@ -7,5 +7,5 @@ all: ${OBJECTS}
 
 .PHONY: clean
 clean:
-    rm ./mcc
+	rm mcc
 	rm -rf $(OBJECTS)
