@@ -3,18 +3,18 @@
 
 enum LexErr {
 	kOK,
-	kERR
+	kErr
 };
 
 enum TokenType {
-	kIDENTIFIER,
-	kKEYWORD,
-	kOPERATOR,
-	kSYMBOL,
-	kCOMMENT,
-	kNEWLINE,
-	kNUMBER,
-	kSTRING
+	kIdentifier,
+	kKeyword,
+	kOperator,
+	kSymbol,
+	kComment,
+	kNewline,
+	kNumber,
+	kString
 };
 
 #endif
