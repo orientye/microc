@@ -1,5 +1,5 @@
 #include "lex.h"
 
-int lex() {
-	return 0;
+lex_err_t lex() {
+	return kSuccess;
 }
