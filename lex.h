@@ -7,4 +7,15 @@ typedef enum {
 	kError
 } lex_err_t;
 
+typedef enum {
+	kIdentifier,
+	kKeyword,
+	kOperator,
+	kSymbol,
+	kComment,
+	kNewline,
+	kNumber,
+	kString
+} token_type_t;
+
 #endif
