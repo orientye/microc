@@ -18,6 +18,6 @@ typedef enum {
 	kString
 } token_type_t;
 
-lex_err_t lex();
+lex_err_t lex(const char* input_file);
 
 #endif
