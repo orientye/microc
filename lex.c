@@ -1,5 +1,11 @@
 #include "lex.h"
 
-lex_err_t lex(const char* input_file) {
+#include <stdio.h>
+
+lex_err_t lex(const char* file_name) {
+	FILE *file = fopen(file_name, "r");
+    	if (!file) {
+        	return kError;
+    	}
 	return kSuccess;
 }
