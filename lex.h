@@ -18,6 +18,11 @@ typedef enum {
 	kString
 } token_type_t;
 
+
+typedef struct {
+
+} token_t;
+
 lex_err_t lex(const char* file_name);
 
 #endif
