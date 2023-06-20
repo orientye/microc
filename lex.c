@@ -2,7 +2,16 @@
 
 #include <stdio.h>
 
+static char peek_char() {
+	return '\0';
+}
+
 static token_t* read_next_token() {
+	token_t* token = NULL;
+	char c = peek_char();
+	switch(c) {
+	
+	}
 	return NULL;
 }
 
