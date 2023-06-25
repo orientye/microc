@@ -3,7 +3,10 @@
 #include <stdio.h>
 
 static char peek_char() {
-	return '\0';
+	FILE* file = NULL;
+	char c = getc(file);
+    	ungetc(c, file);
+    	return c;
 }
 
 static token_t* read_next_token() {
@@ -16,7 +19,7 @@ static token_t* read_next_token() {
 }
 
 lex_err_t lex(const char* file_name) {
-	FILE *file = fopen(file_name, "r");
+	FILE* file = fopen(file_name, "r");
     	if (!file) {
         	return kError;
     	}
