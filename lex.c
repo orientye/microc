@@ -1,6 +1,15 @@
 #include "lex.h"
 
+#include <stdbool.h>
 #include <stdio.h>
+#include <string.h>
+
+#define STR_EQ(str1, str2)  (0 == strcmp(str1, str2))
+
+static bool is_keyword(const char* str) {
+	return  STR_EQ(str, "int") || 
+		STR_EQ(str, "return");
+}
 
 static char peek_char(FILE* file) {
 	char c = getc(file);
