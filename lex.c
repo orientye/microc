@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <string.h>
 
-#define STR_EQ(str1, str2)  (0 == strcmp(str1, str2))
+#define STR_EQ(str1, str2) (0 == strcmp(str1, str2))
 
 static bool is_keyword(const char* str) {
 	return  STR_EQ(str, "int") || 
