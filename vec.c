@@ -17,5 +17,5 @@ void* vec_create(void) {
 }
 
 void vec_destory(void* vec) {
-
+	free(vec);
 }
