@@ -5,17 +5,16 @@
 typedef struct {
 	size_t capacity;
 	size_t length;
-	char* buff;
+	char buff[];
 } vec_t;
-
-void* vec_create(void) {
-	vec_t* v = (vec_t*)malloc(sizeof(vec_t));
-	v->capacity = 0;
-	v->length = 0;
-	v->buff = NULL;
-	return v;
-}
 
 void vec_destory(void* vec) {
 	free(vec);
+}
+
+void* __vec_create(size_t type_len, size_t len) {
+	vec_t* v = (vec_t*)malloc(sizeof(vec_t) + type_len * len);
+	v->capacity = len;
+	v->length = 0;
+	return v->buff;
 }
