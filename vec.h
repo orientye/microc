@@ -17,7 +17,7 @@ void vec_erase(void* vec, size_t pos, size_t len);
 
 void vec_pop_back(void* vec);
 
-void vec_size(void* vec);
+size_t vec_size(void* vec);
 
 //internal
 void* __vec_create(size_t type_len, size_t len);

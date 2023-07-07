@@ -18,3 +18,9 @@ void* __vec_create(size_t type_len, size_t len) {
 	v->length = 0;
 	return v->buff;
 }
+
+
+size_t vec_size(void* vec) {
+	vec_t* v = vec;
+	return v->length;
+}
