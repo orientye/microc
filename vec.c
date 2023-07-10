@@ -21,14 +21,15 @@ void* __vec_create(size_t type_len, size_t len) {
 	return v->buff;
 }
 
-
 size_t vec_size(void* vec) {
 	vec_t* v = vec;
 	return v->length;
 }
 
+static vec_t* __vector_struct(void* vec) { return &((vec_t*)vec)[-1]; }
+
 void* __vec_back(void* vec) {
-	vec_t* v = vec;
+	vec_t* v = __vector_struct(vec);
 	char* p = v->buff + v->length * v->type_len;
 	return p;	
 }

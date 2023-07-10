@@ -12,7 +12,7 @@ void vec_destory(void* vec);
 size_t vec_size(void* vec);
 
 #define vec_push_back(VEC, VALUE)	\
-	(  *((typeof(VEC))  __vec_back(VEC)) = VALUE)	
+	(*((typeof(VEC))__vec_back(VEC)) = VALUE)	
 
 void vec_pop_back(void* vec);
 
