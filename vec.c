@@ -28,8 +28,8 @@ size_t vec_size(void* vec) {
 
 static vec_t* __vector_struct(void* vec) { return &((vec_t*)vec)[-1]; }
 
-void* __vec_back(void* vec) {
+void* __vec_push_back(void* vec) {
 	vec_t* v = __vector_struct(vec);
-	char* p = v->buff + v->length * v->type_len;
+	char* p = v->buff + (v->length++) * v->type_len;
 	return p;	
 }
