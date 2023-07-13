@@ -28,8 +28,15 @@ size_t vec_size(void* vec) {
 
 static vec_t* __vector_struct(void* vec) { return &((vec_t*)vec)[-1]; }
 
+static vec_t* __vector_realloc(vec_t* v) {
+	return NULL;
+}
+
 void* __vec_push_back(void* vec) {
 	vec_t* v = __vector_struct(vec);
+	if (v->length >= v->capacity) {
+		v = __vector_realloc(v);
+	}
 	char* p = v->buff + (v->length++) * v->type_len;
 	return p;	
 }
