@@ -29,7 +29,10 @@ size_t vec_size(void* vec) {
 static vec_t* __vector_struct(void* vec) { return &((vec_t*)vec)[-1]; }
 
 static vec_t* __vector_realloc(vec_t* v) {
-	return NULL;
+	size_t len = (v->length ? v->length : 1) << 1;
+	v = (vec_t*)realloc(v, sizeof(vec_t) + v->type_len * len);
+	v->capacity = len;
+	return v;
 }
 
 void* __vec_push_back(void* vec) {
