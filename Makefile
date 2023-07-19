@@ -1,6 +1,6 @@
 BUILD_DIR=./build
 TEST_DIR=./test
-OBJECTS= ${BUILD_DIR}/vec.o ${BUILD_DIR}/lex.o ${BUILD_DIR}/test-vec.o
+OBJECTS= ${BUILD_DIR}/vec.o ${BUILD_DIR}/lex.o ${BUILD_DIR}/test.o ${BUILD_DIR}/test-vec.o
 CC=clang
 
 all: ${OBJECTS}
@@ -11,6 +11,9 @@ ${BUILD_DIR}/vec.o: vec.c
 
 ${BUILD_DIR}/lex.o: lex.c
 	${CC} lex.c -c -o ${BUILD_DIR}/lex.o
+
+${BUILD_DIR}/test.o: ${TEST_DIR}/test.c
+	${CC} ${TEST_DIR}/test.c -c -o ${BUILD_DIR}/test.o
 
 ${BUILD_DIR}/test-vec.o: ${TEST_DIR}/test-vec.c
 	${CC} ${TEST_DIR}/test-vec.c -c -o ${BUILD_DIR}/test-vec.o
