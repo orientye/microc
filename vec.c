@@ -21,12 +21,19 @@ void* __vec_create(size_t type_len, size_t len) {
 	return v->buff;
 }
 
+static vec_t* __vector_struct(void* vec) { return &((vec_t*)vec)[-1]; }
+
 size_t vec_size(void* vec) {
-	vec_t* v = vec;
+	vec_t* v = __vector_struct(vec);
 	return v->length;
 }
 
-static vec_t* __vector_struct(void* vec) { return &((vec_t*)vec)[-1]; }
+void vec_pop_back(void* vec) {
+	vec_t* v = __vector_struct(vec);
+	if (v->length > 0) {
+		v->length--;
+	}
+}
 
 static vec_t* __vector_realloc(vec_t* v) {
 	size_t len = (v->length ? v->length : 1) << 1;

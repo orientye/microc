@@ -13,4 +13,8 @@ void test_vec() {
 	for (int i = 0; i < count; i++) {
 		assert(v[i] == (i + 1));
 	}
+
+	vec_pop_back(v);
+	int count2 = vec_size(v);
+	assert(count == (count2 + 1));
 }
