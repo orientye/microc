@@ -16,7 +16,8 @@ size_t vec_size(void* vec);
 
 void vec_pop_back(void* vec);
 
-void vec_insert(void* vec, size_t pos);
+#define vec_insert(VEC, POS, VAL)	\
+	(*((typeof(VEC))__vec_insert(VEC, POS)) = VALUE)	
 
 void vec_erase(void* vec, size_t pos, size_t len);
 
@@ -24,5 +25,7 @@ void vec_erase(void* vec, size_t pos, size_t len);
 void* __vec_create(size_t type_len, size_t len);
 
 void* __vec_push_back(void* vec);
+
+void* __vec_insert(void* vec, size_t pos);
 
 #endif

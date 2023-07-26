@@ -35,6 +35,10 @@ void vec_pop_back(void* vec) {
 	}
 }
 
+void vec_erase(void* vec, size_t pos, size_t len) {
+
+}
+
 static vec_t* __vector_realloc(vec_t* v) {
 	size_t len = (v->length ? v->length : 1) << 1;
 	v = (vec_t*)realloc(v, sizeof(vec_t) + v->type_len * len);
@@ -50,3 +54,8 @@ void* __vec_push_back(void* vec) {
 	char* p = v->buff + (v->length++) * v->type_len;
 	return p;	
 }
+
+void* __vec_insert(void* vec, size_t pos) {
+	return NULL;
+}
+
