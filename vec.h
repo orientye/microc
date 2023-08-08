@@ -16,7 +16,7 @@ size_t vec_size(void* vec);
 
 void vec_pop_back(void* vec);
 
-#define vec_insert(VEC, POS, VAL)	\
+#define vec_insert(VEC, POS, VALUE)	\
 	(*((typeof(VEC))__vec_insert(VEC, POS)) = VALUE)	
 
 void vec_erase(void* vec, size_t pos, size_t len);

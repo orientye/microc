@@ -1,6 +1,7 @@
 #include "vec.h"
 
 #include <stdlib.h>
+#include <string.h>
 
 typedef struct {
 	size_t capacity;
@@ -56,6 +57,17 @@ void* __vec_push_back(void* vec) {
 }
 
 void* __vec_insert(void* vec, size_t pos) {
-	return NULL;
+	vec_t* v = __vector_struct(vec);
+	if (v->length >= v->capacity) {
+		v = __vector_realloc(v);
+	}
+
+	memmove(&v->buff[(pos + 1) * v->type_len],
+		&v->buff[pos * v->type_len],
+		(v->length - pos) * v->type_len);
+
+	v->length++;
+	char* p = v->buff + pos * v->type_len;
+	return p;	
 }
 

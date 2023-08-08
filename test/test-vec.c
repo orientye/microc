@@ -14,7 +14,15 @@ void test_vec() {
 		assert(v[i] == (i + 1));
 	}
 
-	vec_pop_back(v);
+	vec_insert(v, 0, 0);
+	vec_insert(v, count+1, count + 1);
 	int count2 = vec_size(v);
-	assert(count == (count2 + 1));
+	
+	for (int i = 0; i < count2; i++) {
+		assert(v[i] == i);
+	}
+
+	vec_pop_back(v);
+	int count3 = vec_size(v);
+	assert(count2 == (count3 + 1));
 }
