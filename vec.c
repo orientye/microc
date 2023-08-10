@@ -37,7 +37,11 @@ void vec_pop_back(void* vec) {
 }
 
 void vec_erase(void* vec, size_t pos, size_t len) {
-
+	vec_t* v = __vector_struct(vec);
+	memmove(&v->buff[pos * v->type_len],
+		&v->buff[(pos + len) * v->type_len],
+		(v->length - pos - len) * v->type_len);
+	v->length = v->length - len;
 }
 
 static vec_t* __vector_realloc(vec_t* v) {
@@ -61,7 +65,6 @@ void* __vec_insert(void* vec, size_t pos) {
 	if (v->length >= v->capacity) {
 		v = __vector_realloc(v);
 	}
-
 	memmove(&v->buff[(pos + 1) * v->type_len],
 		&v->buff[pos * v->type_len],
 		(v->length - pos) * v->type_len);
