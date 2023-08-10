@@ -25,4 +25,7 @@ void test_vec() {
 	vec_pop_back(v);
 	int count3 = vec_size(v);
 	assert(count2 == (count3 + 1));
+
+	vec_erase(v, 10, 30);
+	assert(v[10] == 40);
 }
