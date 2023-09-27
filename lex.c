@@ -37,5 +37,6 @@ lex_err_t lex(const char* file_name) {
 		read_next_token(file);
 	} 
 
+	fclose(file);
 	return kSuccess;
 }
