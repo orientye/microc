@@ -47,7 +47,12 @@ static token_t* read_next_token(FILE* file) {
 	case '\n':
 		break;
 	
-	default:
+	default: 
+		{
+			if (isalpha(c) || c == '_') {
+        			//try identifier_or_keyword
+			}
+		}
 		break;	
 	}
 	return NULL;
