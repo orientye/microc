@@ -58,7 +58,7 @@ static token_t* read_next_token(FILE* file) {
 	return NULL;
 }
 
-lex_err_t lex(const char* file_name) {
+lex_err_t lex(lexer_t* lexer, const char* file_name) {
 	FILE* file = fopen(file_name, "r");
     	if (!file) {
         	return kError;
@@ -66,7 +66,7 @@ lex_err_t lex(const char* file_name) {
 	
 	token_t* token = read_next_token(file);
 	while (token) {	
-		read_next_token(file);
+		token = read_next_token(file);
 	} 
 
 	fclose(file);

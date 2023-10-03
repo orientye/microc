@@ -39,6 +39,6 @@ typedef struct {
 	token_t* token_vec;
 } lexer_t;
 
-lex_err_t lex(const char* file_name);
+lex_err_t lex(lexer_t* lexer, const char* file_name);
 
 #endif

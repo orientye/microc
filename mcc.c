@@ -11,7 +11,8 @@ int main(int argc, char** argv) {
 	const char* input_file = argc > 1 ? argv[1] : "./test/test-input.c";
 	const char* output_file = argc > 2 ? argv[2] : "test";	
 	
-	lex_err_t lex_ret = lex(input_file);
+	lexer_t lexer;
+	lex_err_t lex_ret = lex(&lexer, input_file);
 	if (kSuccess != lex_ret) {
 		printf("lex err, code=%d\n", lex_ret);
 	}
