@@ -72,3 +72,12 @@ lex_err_t lex(lexer_t* lexer, const char* file_name) {
 	fclose(file);
 	return kSuccess;
 }
+
+
+lexer_t* lexer_create() {
+	return NULL;
+}
+
+void lexer_destroy(lexer_t* lexer) {
+
+}

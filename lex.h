@@ -41,4 +41,8 @@ typedef struct {
 
 lex_err_t lex(lexer_t* lexer, const char* file_name);
 
+lexer_t* lexer_create();
+
+void lexer_destroy(lexer_t* lexer);
+
 #endif
