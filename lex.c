@@ -75,9 +75,10 @@ lex_err_t lex(lexer_t* lexer, const char* file_name) {
 
 
 lexer_t* lexer_create() {
-	return NULL;
+	lexer_t* lexer = malloc(sizeof(lexer_t));
+	return lexer;
 }
 
 void lexer_destroy(lexer_t* lexer) {
-
+	free(lexer);
 }
