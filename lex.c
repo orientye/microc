@@ -3,6 +3,7 @@
 #include <ctype.h>
 #include <stdbool.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
 #define STR_EQ(str1, str2) (0 == strcmp(str1, str2))
@@ -47,6 +48,9 @@ static token_t* read_next_token(FILE* file) {
 	case '\n':
 		break;
 	
+	case EOF:
+		break;
+	
 	default: 
 		{
 			if (isalpha(c) || c == '_') {
@@ -55,7 +59,7 @@ static token_t* read_next_token(FILE* file) {
 		}
 		break;	
 	}
-	return NULL;
+	return token;
 }
 
 lex_err_t lex(lexer_t* lexer, const char* file_name) {
