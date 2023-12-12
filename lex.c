@@ -31,11 +31,20 @@ static char peek_char(FILE* file) {
     	return c;
 }
 
+static token_t* token_make_number() {
+	return NULL;
+}
+
+static token_t* token_make_keyword_or_identifier() {
+	return NULL;
+}
+
 static token_t* read_next_token(FILE* file) {
 	token_t* token = NULL;
 	char c = peek_char(file);
 	switch(c) {
 	DIGIT_CASE:
+		token = token_make_number();
 		break;
 	
 	case '"':
@@ -54,7 +63,7 @@ static token_t* read_next_token(FILE* file) {
 	default: 
 		{
 			if (isalpha(c) || c == '_') {
-        			//try identifier_or_keyword
+				token = token_make_keyword_or_identifier();
 			}
 		}
 		break;	
